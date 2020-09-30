@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Board.Models.Advert>
+@ViewBag.Title = "Доска объявлений";
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdvType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Body)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdvType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Body)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.AdvertId }) |
+            @Html.ActionLink("Подробнее", "Details", new { id=item.AdvertId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.AdvertId })
+        </td>
+    </tr>
+}
+
+</table>
